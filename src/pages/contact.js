@@ -1,34 +1,124 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+
 import {
   FaFacebook,
   FaTwitter,
   FaLinkedin,
   FaEnvelope,
   FaPhone,
+  FaNetworkWired,
+  FaGrinWink,
 } from "react-icons/fa"
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  margin: 2rem 1rem;
-  background: var(--color-background);
-  filter: brightness(1.2);
-  width: 90vw;
-  /* height: 100vh; */
+import SideBar from "../components/sideBar"
+import { DiCode } from "react-icons/di"
 
-  box-shadow: 0 0 10px black;
+const Container = styled.div`
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+`
+
+const Heading = styled.h1`
+  font-size: 2rem;
+  word-spacing: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: transparent;
+  background: -webkit-linear-gradient(
+    var(--color-primary-light),
+    var(--color-primary-dark),
+    var(--color-primary-main)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 0;
+    background: -webkit-linear-gradient(
+      var(--color-primary-light),
+      var(--color-primary-dark),
+      var(--color-primary-main)
+    );
+    width: 6px;
+    height: 100%;
+    display: inline-block;
+    justify-self: flex-start;
+    border-radius: 5px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 0;
+    background: -webkit-linear-gradient(
+      var(--color-primary-light),
+      var(--color-primary-dark),
+      var(--color-primary-main)
+    );
+    width: 6px;
+    height: 100%;
+    border-radius: 5px;
+  }
+`
+
+const AboutContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  margin: 3rem 2rem;
+  grid-gap: 20px;
+  .social {
+    h1 {
+    }
+    grid-area: 1 / 1 / 2/ -1;
+    justify-self: start;
+    padding: 1rem;
+  }
+  div {
+    justify-self: center;
+    img {
+      border-radius: 50%;
+      width: 100%;
+      min-width: 300px;
+      max-width: 400px;
+    }
+  }
+  div {
+    /* justify-self: start; */
+    p {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      line-height: 1.7;
+      font-weight: bold;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+    }
+    ul {
+      li {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 1rem 0;
+        background: var(--color-background);
+        box-shadow: 0 0 2px 1px #222;
+        padding: 0.3rem 0.6rem;
+        border-radius: 10px;
+        span {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
 `
 
 const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
   form {
     width: 90%;
     div {
@@ -53,6 +143,11 @@ const FormContainer = styled.div`
         color: var(--color-text);
         letter-spacing: 1px;
         font-size: 1.04rem;
+        border-left: var(--color-primary-main) 2px solid;
+        border-right: var(--color-primary-main) 2px solid;
+        /* border-top: var(--color-primary-main) 2px solid; */
+        box-shadow: var(--color-shadow);
+        border-radius: 5px;
       }
       input:focus,
       textarea:focus {
@@ -62,100 +157,84 @@ const FormContainer = styled.div`
     }
   }
 `
-const AboutContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 2rem 4rem;
-  img {
-    border-radius: 50%;
-  }
-  p {
-    width: 70%;
-    margin: 1rem 0;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    line-height: 1.7;
-    font-weight: bold;
-    letter-spacing: 1px;
-    word-spacing: 2px;
-  }
-  ul {
-    width: 300px;
-    li {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      margin: 1rem 0;
-      background: var(--color-background);
-      box-shadow: 0 0 2px 1px #222;
-      padding: 0.3rem 0.6rem;
-      border-radius: 10px;
-      span {
-        margin-left: 1rem;
-      }
-    }
-  }
-`
+
+const navBarData = [
+  { id: "about", Icon: <FaNetworkWired size={30} /> },
+  { id: "services", Icon: <FaGrinWink size={30} /> },
+  { id: "projects", Icon: <DiCode size={30} /> },
+]
 
 const contact = () => {
   return (
     <>
-      <Container>
-        <AboutContainer>
-          <img src="https://picsum.photos/id/300/300/300" alt="hello" />
-          <p>
-            Hello if you wanna contact me to discue bout something please choose
-            the simplest way you like and good day
-          </p>
-          <div>
-            <ul>
-              <li>
-                <FaPhone size={20} />
-                <span> +212630371320</span>
-              </li>
-              <li>
-                <FaEnvelope size={20} />
-                <span>hamzamiloudamar@gmail.com</span>
-              </li>
-              <li>
-                <FaFacebook size={20} />
-                <span>Hamzaamar</span>
-              </li>
-              <li>
-                <FaTwitter size={20} />
-                <span>Hamzaamar</span>
-              </li>
-              <li>
-                <FaLinkedin size={20} />
-                <span>Hamzaamar</span>
-              </li>
-            </ul>
-          </div>
-        </AboutContainer>
-        <FormContainer>
-          <h1>Contact Me</h1>
-          <form>
-            <div>
-              <label htmlFor="name">Name</label>
-              <input type="text" name="" id="name" />
+      <SideBar navBarData={navBarData} />
+      <main
+        css={css`
+          grid-area: content;
+        `}
+      >
+        <Container>
+          <AboutContainer>
+            <div className="social">
+              <Heading>social Contact</Heading>
             </div>
             <div>
-              <label htmlFor="name">Email</label>
-              <input type="text" name="" id="name" />
+              <img src="https://picsum.photos/id/350/300/300" alt="hello" />
             </div>
             <div>
-              <label htmlFor="name">Subject</label>
-              <input type="text" name="" id="name" />
+              <p>
+                Hello and welcome am glad you are here take your time and
+                discover some stuff in my website . if you wanna contact me to
+                discuss about something please choose the simplest way you like
+                and good day and i hope you like my little website
+              </p>
+              <ul>
+                <li>
+                  <FaPhone size={20} />
+                  <span> +212630371320</span>
+                </li>
+                <li>
+                  <FaEnvelope size={20} />
+                  <span>hamzamiloudamar@gmail.com</span>
+                </li>
+                <li>
+                  <FaFacebook size={20} />
+                  <span>Hamzaamar</span>
+                </li>
+                <li>
+                  <FaTwitter size={20} />
+                  <span>Hamzaamar</span>
+                </li>
+                <li>
+                  <FaLinkedin size={20} />
+                  <span>Hamzaamar</span>
+                </li>
+              </ul>
             </div>
-            <div>
-              <label htmlFor="name">Subject</label>
-              <textarea rows="8" type="text" name="" id="name"></textarea>
-            </div>
-          </form>
-        </FormContainer>
-      </Container>
+          </AboutContainer>
+          <FormContainer>
+            <Heading>Contact Me</Heading>
+            <form>
+              <div>
+                <label htmlFor="name">Name</label>
+                <input type="text" name="" id="name" />
+              </div>
+              <div>
+                <label htmlFor="name">Email</label>
+                <input type="text" name="" id="name" />
+              </div>
+              <div>
+                <label htmlFor="name">Subject</label>
+                <input type="text" name="" id="name" />
+              </div>
+              <div>
+                <label htmlFor="name">Subject</label>
+                <textarea rows="8" type="text" name="" id="name"></textarea>
+              </div>
+            </form>
+          </FormContainer>
+        </Container>
+      </main>
     </>
   )
 }

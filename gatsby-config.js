@@ -34,14 +34,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve(`./src/components/layout.js`),
+        component: require.resolve(`./src/components/Layout`),
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Hamza Miloud Amar`,
+        short_name: `HMA`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

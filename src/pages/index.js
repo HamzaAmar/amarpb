@@ -1,16 +1,28 @@
-import React from "react"
+import React, { useContext } from "react"
 import { DiCode } from "react-icons/di"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 
 import SEO from "../components/seo"
-import Project from "../components/projects"
+import Project from "../components/project"
 import About from "../components/about"
-import Services from "../components/services"
+import Services from "../components/service"
+import Skills from "../components/skill"
+import SideBar from "../components/sideBar"
+
+import { Consumer } from "../helpers/context"
+
 import { FaGrinWink, FaNetworkWired } from "react-icons/fa"
-import Skills from "../components/skills"
 // import { Heading } from "../style/styles"
 
 const Container = styled.div`
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-gap: 2rem;
+`
+
+const Section = styled.section`
+  /* padding: 3rem; */
   background: linear-gradient(
     to right bottom,
     var(--color-background-light),
@@ -18,14 +30,8 @@ const Container = styled.div`
     var(--color-background-light),
     var(--color-background-main)
   );
-  width: calc(100vw - 4.8rem);
-  height: auto;
-  min-height: 100vh;
-  padding: 3rem;
   box-shadow: var(--color-shadow);
-  display: flex;
-  flex-direction: column;
-
+  width: calc(100vw - 5rem);
   @media (max-width: 468px) {
     padding: 0 0.3rem;
     width: 100vw;
@@ -81,39 +87,48 @@ const Heading = styled.h1`
   }
 `
 
-const NavBarData = [
+const navBarData = [
   { id: "about", Icon: <FaNetworkWired size={30} /> },
   { id: "services", Icon: <FaGrinWink size={30} /> },
   { id: "projects", Icon: <DiCode size={30} /> },
 ]
 
-const IndexPage = ({ data }) => {
-  console.log(data)
+const IndexPage = ({ data, ...rest }) => {
+  const dataContext = useContext(Consumer)
   return (
     <>
-      <SEO title="Home" />
-      <Container>
-        <About />
-      </Container>
-      <Container auto={true}>
-        <Heading>Services</Heading>
-        <Services />
-      </Container>
-      <Container auto={true}>
-        <Heading>Skills</Heading>
-        <Skills />
-      </Container>
-      <Container auto={true}>
-        <Heading>Projects</Heading>
-        <Project />
-        {data &&
-          data.projects &&
-          data.projects.edges.map(({ node }) => {
-            const { frontmatter } = node
+      <SideBar navBarData={navBarData} />
+      <main
+        css={css`
+          grid-area: content;
+        `}
+      >
+        <SEO title="Home" />
+        <Container>
+          <Section>
+            <About />
+          </Section>
+          <Section>
+            <Heading>Services</Heading>
+            <Services />
+          </Section>
+          <Section>
+            <Heading>Skills</Heading>
+            <Skills />
+          </Section>
+          <Section>
+            <Heading>Projects</Heading>
+            <Project />
+            {data &&
+              data.projects &&
+              data.projects.edges.map(({ node }) => {
+                const { frontmatter } = node
 
-            return <Project key={frontmatter.title} project={frontmatter} />
-          })}
-      </Container>
+                return <Project key={frontmatter.title} project={frontmatter} />
+              })}
+          </Section>
+        </Container>
+      </main>
     </>
   )
 }

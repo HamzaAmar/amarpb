@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby" // highlight-line
-import Layout from "../components/layout"
 
 // highlight-start
 export default function BlogPost({ data }) {

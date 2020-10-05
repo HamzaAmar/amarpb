@@ -8,9 +8,8 @@ import {
   AiOutlineLinkedin,
   AiOutlineRadiusSetting,
 } from "react-icons/ai"
-import styled from "@emotion/styled"
 
-const Container = styled.div``
+import { Container } from "./style"
 
 const Footer = () => (
   <footer

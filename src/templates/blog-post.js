@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby" // highlight-line
-import Layout from "../components/layout"
 import styled from "@emotion/styled"
 
 const Container = styled.div`

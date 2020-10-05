@@ -1,15 +1,13 @@
-import React from "react"
 import styled from "@emotion/styled"
-import skills from "../constants/skills"
 
-const Container = styled.section`
+export const Container = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
 `
-const Skill = styled.div`
+export const Skill = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,7 +67,7 @@ const Skill = styled.div`
   }
 `
 
-const SkillContainer = styled.div`
+export const SkillContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,34 +92,3 @@ const SkillContainer = styled.div`
     font-style: italic;
   }
 `
-
-const SkillsContainer = () => {
-  return (
-    <Container>
-      {skills.map(([skill, lists]) => {
-        return (
-          <Skill>
-            <h1> {skill} </h1>
-            <ul>
-              {lists.map(list => {
-                return (
-                  <li>
-                    <SkillContainer>
-                      <h2>{list.title}</h2>
-
-                      {list.icon}
-
-                      <h4>{list.level}%</h4>
-                    </SkillContainer>
-                  </li>
-                )
-              })}
-            </ul>
-          </Skill>
-        )
-      })}
-    </Container>
-  )
-}
-
-export default SkillsContainer

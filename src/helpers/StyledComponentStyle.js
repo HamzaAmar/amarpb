@@ -6,6 +6,8 @@ export const globalStyle = () => css`
     --spacing-sm: 0.5rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
+    --header-height: 5rem;
+    --sidebar-width: 5rem;
   }
   @media (max-width: 410px) {
     :root {

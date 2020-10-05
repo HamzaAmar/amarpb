@@ -1,13 +1,5 @@
-import React from "react"
 import styled from "@emotion/styled"
-import { css, keyframes } from "@emotion/core"
-import {
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaGithub,
-  FaInstagram,
-} from "react-icons/fa"
+import { keyframes } from "@emotion/core"
 
 const animation = keyframes`
   0{
@@ -22,31 +14,45 @@ const animation = keyframes`
 
   }
 `
-const opacity = keyframes`
-  0%{
-    opacity:1;
-  }
-  50%{
-    opacity:0.8;
-  }
-  100%{
-    opacity:1;
-  }
-`
+// const opacity = keyframes`
+//   0%{
+//     opacity:1;
+//   }
+//   50%{
+//     opacity:0.8;
+//   }
+//   100%{
+//     opacity:1;
+//   }
+// `
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
   height: calc(100vh - 5rem);
-  flex-grow: 1;
 
-  @media (max-width: 468px) {
-    display: block;
-    height: auto;
+  @media (max-width: 780px) {
+    flex-direction: column;
+    justify-content: center;
   }
 `
-const Name = styled.h3`
+
+export const TextContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  line-height: 1.7;
+  flex: 1 0 350px;
+
+  max-width: 600px;
+
+  @media (max-width: 780px) {
+    width: 100%;
+    padding: 1rem;
+  }
+`
+
+export const Name = styled.h3`
   font-size: 2.3rem;
   word-spacing: 5px;
   letter-spacing: 1px;
@@ -66,23 +72,9 @@ const Name = styled.h3`
   }
 `
 
-const TextContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  line-height: 1.7;
-  flex-grow: 1;
-  width: 50%;
-
-  @media (max-width: 468px) {
-    width: 100%;
-    padding: 1rem;
-  }
-`
-
-const NavList = styled.ul`
+export const NavList = styled.ul`
   display: flex;
   li {
-    padding: 1rem;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -118,7 +110,7 @@ const NavList = styled.ul`
     }
   }
 `
-const Text = styled.p`
+export const Text = styled.p`
   word-spacing: 2px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -135,18 +127,13 @@ const Text = styled.p`
   }
 `
 
-const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   height: 400px;
-  flex-grow: 1;
-  width: 50%;
+  /* flex-grow: 1; */
+  width: 400px;
   border-radius: 50%;
-  /* padding: 4rem; */
-  /* background: red; */
   position: relative;
-
-  @media (max-width: 468px) {
-    display: none;
-  }
+  background: red;
 
   ::before {
     content: "";
@@ -171,43 +158,8 @@ const ImageWrapper = styled.div`
     object-fit: cover;
     border-radius: 30% 40% 30% 40% / 60% 30% 60% 30%;
   }
+
+  @media (max-width: 780px) {
+    display: none;
+  }
 `
-
-const About = () => {
-  return (
-    <Container>
-      <TextContent>
-        <Name>Hamza Miloud Amar </Name>
-        <Text>
-          I am full stack javascript developer i worked with javascript 3 year
-          ago i create static web site with Gatsby or next js , server side
-          rending website with next js , single page application , CMS with
-          Strapi and high performance website
-        </Text>
-        <NavList>
-          <li>
-            <FaFacebook size={30} />
-          </li>
-          <li>
-            <FaTwitter size={30} />
-          </li>
-          <li>
-            <FaLinkedin size={30} />
-          </li>
-          <li>
-            <FaGithub size={30} />
-          </li>
-          <li>
-            <FaInstagram size={30} />
-          </li>
-        </NavList>
-      </TextContent>
-      <ImageWrapper>
-        <img src="/me.jpeg" />
-        <span />
-      </ImageWrapper>
-    </Container>
-  )
-}
-
-export default About

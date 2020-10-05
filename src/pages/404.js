@@ -8,7 +8,7 @@ const NotFound = () => {
         css={css`
           display: flex;
           align-items: center;
-          fonsize:6rem;
+          font-size: 6rem;
         `}
       >
         <span>4</span>

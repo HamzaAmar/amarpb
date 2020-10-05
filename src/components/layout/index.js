@@ -1,36 +1,17 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
-import styled from "@emotion/styled"
 import { AiOutlineClose } from "react-icons/ai"
 
-import Header from "./header"
-import SideBar from "./sideBar"
-import { theme, globalStyle } from "../helpers/StyledComponentStyle"
-import { Input } from "../style/styles"
-import useMode from "../hooks/darkMode"
-import { COLORS } from "../constants/variables"
-import Footer from "./footer"
+import Header from "../header"
+import Footer from "../footer"
 
-const Content = styled.section``
-const SearchContainer = styled.div`
-  visibility: ${({ search }) => (search ? "visible" : "hidden")};
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: red;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  z-index: 10000;
-  transform: ${({ search }) =>
-    search ? "translateY(0)" : "translateY(-100%)"};
-  transition: transform 1s;
-`
+import { globalStyle } from "../../helpers/StyledComponentStyle"
+import { Input } from "../../style/styles"
+import useMode from "../../hooks/darkMode"
+import { Content, SearchContainer } from "./style"
+import { ContextProviderComponent } from "../../helpers/context"
 
 const Layout = ({ children, navBarData }) => {
   const [mode, setMode] = useMode()
@@ -47,7 +28,7 @@ const Layout = ({ children, navBarData }) => {
   `)
 
   return (
-    <>
+    <ContextProviderComponent>
       <Global styles={globalStyle} />
       <Header
         setSearch={setSearchVisible}
@@ -73,29 +54,18 @@ const Layout = ({ children, navBarData }) => {
       <Content>
         <div
           css={css`
-            display: flex;
-            flex-direction: row;
-
+            display: grid;
+            grid-template-columns: "sidebar content";
             @media (max-width: 468px) {
-              flex-direction: column-reverse;
+              grid-template-columns: "content";
             }
           `}
         >
-          <SideBar navBarData={navBarData} />
-          <main
-            css={css`
-              margin-left: 4rem;
-              @media (max-width: 468px) {
-                margin-left: 0;
-              }
-            `}
-          >
-            {children}
-          </main>
+          {children}
         </div>
         <Footer />
       </Content>
-    </>
+    </ContextProviderComponent>
   )
 }
 
