@@ -45,6 +45,7 @@ export default function HTML(props) {
           }}
         />
         {props.preBodyComponents}
+        <noscript>This site runs best with JavaScript enabled.</noscript>
         <div
           key={`body`}
           id="___gatsby"
