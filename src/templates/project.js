@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby" // highlight-line
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 // highlight-start
 export default function BlogPost({ data }) {
-  const post = data.markdownRemark
+  const post = data.mdx
   // highlight-end
   return (
     <>
@@ -11,7 +12,7 @@ export default function BlogPost({ data }) {
       <div>
         <h1>Projects</h1>
         <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <MDXRenderer>{post.body}</MDXRenderer>
       </div>
       {/* highlight-end */}
     </>
@@ -21,8 +22,8 @@ export default function BlogPost({ data }) {
 // highlight-start
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
       }

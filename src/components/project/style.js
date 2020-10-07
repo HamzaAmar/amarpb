@@ -5,15 +5,27 @@ export const Container = styled.section`
   flex-wrap: wrap;
 `
 
+export const Content = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: var(--color-background-light);
+  flex-direction: column;
+  transform: translateY(-101%);
+  transition: transform 500ms;
+`
+
 export const Card = styled.div`
   width: calc(100% * 1 / 3 - 2rem);
   margin: 1rem;
   border-radius: 3rem;
   overflow: hidden;
   position: relative;
-
-  :hover ${Content} {
-    transform: translateY(0);
   }
 
   @media (max-width: 468px) {
@@ -32,19 +44,4 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
-`
-
-export const Content = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: var(--color-background-light);
-  flex-direction: column;
-  transform: translateY(-101%);
-  transition: transform 500ms;
 `

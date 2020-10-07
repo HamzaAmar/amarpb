@@ -6,7 +6,7 @@ import { Container, Card, Image, ButtonWrapper, Content } from "./style"
 const Projects = () => {
   const data = useStaticQuery(graphql`
     query {
-      projects: allMarkdownRemark(
+      projects: allMdx(
         filter: { fileAbsolutePath: { regex: "//data/projects//" } }
         sort: { order: ASC, fields: frontmatter___date }
       ) {

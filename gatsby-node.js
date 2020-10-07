@@ -95,7 +95,7 @@ function createProjectPages({ blogs, actions }) {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     console.log(slug, "slug from create node")
     createNodeField({
@@ -112,9 +112,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
   const { data, errors } = await graphql(`
     query {
-      blogs: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "//data/blogs//" } }
-      ) {
+      blogs: allMdx(filter: { fileAbsolutePath: { regex: "//data/blogs//" } }) {
         edges {
           node {
             fields {
@@ -123,7 +121,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      projects: allMarkdownRemark(
+      projects: allMdx(
         filter: { fileAbsolutePath: { regex: "//data/projects//" } }
       ) {
         edges {

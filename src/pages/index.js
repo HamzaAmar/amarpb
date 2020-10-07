@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { DiCode } from "react-icons/di"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
@@ -9,8 +9,6 @@ import About from "../components/about"
 import Services from "../components/service"
 import Skills from "../components/skill"
 import SideBar from "../components/sideBar"
-
-import { Consumer } from "../helpers/context"
 
 import { FaGrinWink, FaNetworkWired } from "react-icons/fa"
 // import { Heading } from "../style/styles"
@@ -93,8 +91,7 @@ const navBarData = [
   { id: "projects", Icon: <DiCode size={30} /> },
 ]
 
-const IndexPage = ({ data, ...rest }) => {
-  const dataContext = useContext(Consumer)
+const IndexPage = ({ data }) => {
   return (
     <>
       <SideBar navBarData={navBarData} />

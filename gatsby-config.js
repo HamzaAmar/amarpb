@@ -15,8 +15,12 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-remark`,
-
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.md`, `.mdx`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,7 +50,6 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
-        icon: `src/images/gatsby-icon.png`,
         icons: [
           {
             src: `/favicons/me-192X192.png`,

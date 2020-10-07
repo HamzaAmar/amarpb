@@ -52,7 +52,7 @@ const Blog = ({ data, ...rest }) => {
 }
 export const query = graphql`
   query {
-    blogs: allMarkdownRemark(
+    blogs: allMdx(
       filter: { fileAbsolutePath: { regex: "//data/blogs//" } }
       sort: { order: ASC, fields: frontmatter___date }
     ) {
