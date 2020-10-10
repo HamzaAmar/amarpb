@@ -2,70 +2,66 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
-import { AiOutlineClose } from "react-icons/ai"
 
 import Header from "../header"
 import Footer from "../footer"
+import SideBar from "../sidebar"
 
 import { globalStyle } from "../../helpers/StyledComponentStyle"
-import { Input } from "../../style/styles"
 import useMode from "../../hooks/darkMode"
-import { Content, SearchContainer } from "./style"
-import { ContextProviderComponent } from "../../helpers/context"
+import { Helmet } from "react-helmet"
+import config from "../../constants/meta"
 
 const Layout = ({ children, navBarData }) => {
   const [mode, setMode] = useMode()
-
   const [searchVisible, setSearchVisible] = useState(false)
-  const data = useStaticQuery(graphql`
+
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
           title
+          description
+          keywords
         }
       }
     }
   `)
 
-  return (
-    <ContextProviderComponent>
-      <Global styles={globalStyle} />
-      <Header
-        setSearch={setSearchVisible}
-        siteTitle={data.site.siteMetadata.title}
-        setMode={setMode}
-        mode={mode}
-      />
-      <SearchContainer search={searchVisible}>
-        <AiOutlineClose
-          size="30"
-          css={css`
-            justify-self: flex-start;
-            position: absolute;
-            top: 2rem;
-            cursor: pointer;
-            right: 2rem;
-          `}
-          onClick={() => setSearchVisible(false)}
-        />
+  const title = siteMetadata.title || config.title
+  const description = siteMetadata.description || config.description
 
-        <Input type="text" placeholder="Search For Blog" />
-      </SearchContainer>
-      <Content>
+  return (
+    <>
+      <Global styles={globalStyle} />
+      <Helmet titleTemplate="%s · HMA">
+        <html lang="en" />
+        <title>{title}</title>
+        <meta charSet="utf-8" />
+        <meta name="description" content={description} />
+      </Helmet>
+      <div
+        css={css`
+          /* display: grid;
+          grid-template-areas: "header header", "sidebar main", "footer footer"; */
+        `}
+      >
+        <Header setSearch={setSearchVisible} setMode={setMode} mode={mode} />
         <div
           css={css`
-            display: grid;
-            grid-template-columns: "sidebar content";
-            @media (max-width: 468px) {
-              grid-template-columns: "content";
-            }
+            display: flex;
+            position: relative;
           `}
         >
-          {children}
+          <SideBar navBarData={navBarData} />
+          <main>{children}</main>
         </div>
+
         <Footer />
-      </Content>
-    </ContextProviderComponent>
+      </div>
+    </>
   )
 }
 
