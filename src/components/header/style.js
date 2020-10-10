@@ -1,16 +1,17 @@
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 
 export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 4rem;
   min-height: 4.5rem;
   padding: 0 3rem;
   position: relative;
   z-index: 10000000000;
   background: var(--color-background-main);
   box-shadow: var(--color-shadow);
+  grid-area: header;
 
   @media (max-width: 468px) {
     margin-left: 0;
@@ -89,13 +90,9 @@ export const Menu = styled.div`
 `
 
 export const Nav = styled.nav`
-  flex-grow: 2;
   align-self: stretch;
   position: relative;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
+  flex: 1 1 15rem;
 
   ul {
     display: flex;
@@ -109,6 +106,37 @@ export const Nav = styled.nav`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 600px) {
+    display: ${({ visible }) => (visible ? "block" : "none")};
+    transform: ${({ visible }) =>
+      visible ? "translateY(0)" : "translateY(-100%)"};
+    transition: transform 100ms;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    z-index: 100;
+    height: calc(100vh - 5rem);
+    background: var(--color-background-main);
+    ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+`
+
+export const logoContainer = css`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  width: 100px;
+
+  @media (max-width: 600px) {
+    width: 70%;
+    min-width: 100px;
   }
 `
 
