@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby" // highlight-line
 import styled from "@emotion/styled"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import SEO from "../components/Seo"
 
 const Container = styled.div`
   padding: 3rem;
@@ -9,14 +10,17 @@ const Container = styled.div`
 
 // highlight-start
 export default function BlogPost({ data }) {
-  const post = data.mdx
+  const { frontmatter, body } = data.mdx
   // highlight-end
   return (
-    <Container>
-      <h1>hello from blogs</h1>
-      <h1>{post.frontmatter.title}</h1>
-      <MDXRenderer>{post.body}</MDXRenderer>
-    </Container>
+    <>
+      <SEO isBlogPost frontmatter={frontmatter} />
+      <Container>
+        <h1>hello from blogs</h1>
+        <h1>{frontmatter.title}</h1>
+        <MDXRenderer>{body}</MDXRenderer>
+      </Container>
+    </>
   )
 }
 
@@ -24,10 +28,19 @@ export default function BlogPost({ data }) {
 export const query = graphql`
   query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      body
+      fields {
+        slug
+      }
       frontmatter {
         title
+        tags
+        keywords
+        image
+        description
+        author
+        category
       }
+      body
     }
   }
 `
