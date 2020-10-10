@@ -2,7 +2,8 @@ import React from "react"
 
 import SEO from "../components/seo"
 import Article from "../components/article"
-import SideBar from "../components/sideBar"
+import Layout from "../components/layout"
+
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 import { FaGrinWink, FaNetworkWired } from "react-icons/fa"
@@ -22,32 +23,27 @@ const navBarData = [
   { id: "projects", Icon: <DiCode size={30} /> },
 ]
 
-const Blog = ({ data, ...rest }) => {
+const Blog = ({ data }) => {
+  console.log(data)
   return (
-    <>
+    <Layout navBarData={navBarData}>
       <SEO title="blog Page" />
-      <SideBar navBarData={navBarData} />
-      <main
-        css={css`
-          grid-area: content;
-        `}
-      >
-        <Container>
-          {data &&
-            data.blogs &&
-            data.blogs.edges.map(({ node }) => {
-              const { frontmatter, fields } = node
 
-              return (
-                <Article
-                  key={frontmatter.title}
-                  article={{ ...frontmatter, ...fields }}
-                />
-              )
-            })}
-        </Container>
-      </main>
-    </>
+      <Container>
+        {data &&
+          data.blogs &&
+          data.blogs.edges.map(({ node }) => {
+            const { frontmatter, fields } = node
+
+            return (
+              <Article
+                key={frontmatter.title}
+                article={{ ...frontmatter, ...fields }}
+              />
+            )
+          })}
+      </Container>
+    </Layout>
   )
 }
 export const query = graphql`
@@ -58,15 +54,17 @@ export const query = graphql`
     ) {
       edges {
         node {
-          frontmatter {
-            title
-            description
-            date
-            author
-            keywords
-          }
           fields {
             slug
+          }
+          frontmatter {
+            title
+            tags
+            keywords
+            image
+            description
+            author
+            category
           }
         }
       }

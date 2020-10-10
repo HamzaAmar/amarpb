@@ -8,7 +8,7 @@ import Project from "../components/project"
 import About from "../components/about"
 import Services from "../components/service"
 import Skills from "../components/skill"
-import SideBar from "../components/sideBar"
+import Layout from "../components/layout"
 
 import { FaGrinWink, FaNetworkWired } from "react-icons/fa"
 // import { Heading } from "../style/styles"
@@ -29,7 +29,7 @@ const Section = styled.section`
     var(--color-background-main)
   );
   box-shadow: var(--color-shadow);
-  width: calc(100vw - 5rem);
+  width: 100vw;
   @media (max-width: 468px) {
     padding: 0 0.3rem;
     width: 100vw;
@@ -94,13 +94,9 @@ const navBarData = [
 const IndexPage = ({ data }) => {
   return (
     <>
-      <SideBar navBarData={navBarData} />
-      <main
-        css={css`
-          grid-area: content;
-        `}
-      >
-        <SEO title="Home" />
+      <SEO title="Home" />
+
+      <Layout navBarData={navBarData}>
         <Container>
           <Section>
             <About />
@@ -125,7 +121,7 @@ const IndexPage = ({ data }) => {
               })}
           </Section>
         </Container>
-      </main>
+      </Layout>
     </>
   )
 }

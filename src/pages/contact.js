@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
 
 import {
   FaFacebook,
@@ -13,6 +12,7 @@ import {
 } from "react-icons/fa"
 
 import SideBar from "../components/sideBar"
+import Layout from "../components/layout"
 import { DiCode } from "react-icons/di"
 
 const Container = styled.div`
@@ -166,76 +166,69 @@ const navBarData = [
 
 const contact = () => {
   return (
-    <>
-      <SideBar navBarData={navBarData} />
-      <main
-        css={css`
-          grid-area: content;
-        `}
-      >
-        <Container>
-          <AboutContainer>
-            <div className="social">
-              <Heading>social Contact</Heading>
+    <Layout navBarData={navBarData}>
+      <Container>
+        <AboutContainer>
+          <div className="social">
+            <Heading>social Contact</Heading>
+          </div>
+          <div>
+            <img src="https://picsum.photos/id/350/300/300" alt="hello" />
+          </div>
+          <div>
+            <p>
+              Hello and welcome am glad you are here take your time and discover
+              some stuff in my website . if you wanna contact me to discuss
+              about something please choose the simplest way you like and good
+              day and i hope you like my little website
+            </p>
+            <ul>
+              <li>
+                <FaPhone size={20} />
+                <span> +212630371320</span>
+              </li>
+              <li>
+                <FaEnvelope size={20} />
+                <span>hamzamiloudamar@gmail.com</span>
+              </li>
+              <li>
+                <FaFacebook size={20} />
+                <span>Hamzaamar</span>
+              </li>
+              <li>
+                <FaTwitter size={20} />
+                <span>Hamzaamar</span>
+              </li>
+              <li>
+                <FaLinkedin size={20} />
+                <span>Hamzaamar</span>
+              </li>
+            </ul>
+          </div>
+        </AboutContainer>
+        <FormContainer>
+          <Heading>Contact Me</Heading>
+          <form>
+            <div>
+              <label htmlFor="name">Name</label>
+              <input type="text" name="" id="name" />
             </div>
             <div>
-              <img src="https://picsum.photos/id/350/300/300" alt="hello" />
+              <label htmlFor="name">Email</label>
+              <input type="text" name="" id="name" />
             </div>
             <div>
-              <p>
-                Hello and welcome am glad you are here take your time and
-                discover some stuff in my website . if you wanna contact me to
-                discuss about something please choose the simplest way you like
-                and good day and i hope you like my little website
-              </p>
-              <ul>
-                <li>
-                  <FaPhone size={20} />
-                  <span> +212630371320</span>
-                </li>
-                <li>
-                  <FaEnvelope size={20} />
-                  <span>hamzamiloudamar@gmail.com</span>
-                </li>
-                <li>
-                  <FaFacebook size={20} />
-                  <span>Hamzaamar</span>
-                </li>
-                <li>
-                  <FaTwitter size={20} />
-                  <span>Hamzaamar</span>
-                </li>
-                <li>
-                  <FaLinkedin size={20} />
-                  <span>Hamzaamar</span>
-                </li>
-              </ul>
+              <label htmlFor="name">Subject</label>
+              <input type="text" name="" id="name" />
             </div>
-          </AboutContainer>
-          <FormContainer>
-            <Heading>Contact Me</Heading>
-            <form>
-              <div>
-                <label htmlFor="name">Name</label>
-                <input type="text" name="" id="name" />
-              </div>
-              <div>
-                <label htmlFor="name">Email</label>
-                <input type="text" name="" id="name" />
-              </div>
-              <div>
-                <label htmlFor="name">Subject</label>
-                <input type="text" name="" id="name" />
-              </div>
-              <div>
-                <label htmlFor="name">Subject</label>
-                <textarea rows="8" type="text" name="" id="name"></textarea>
-              </div>
-            </form>
-          </FormContainer>
-        </Container>
-      </main>
-    </>
+            <div>
+              <label htmlFor="name">Subject</label>
+              <textarea rows="8" type="text" name="" id="name"></textarea>
+            </div>
+          </form>
+        </FormContainer>
+      </Container>
+    </Layout>
   )
 }
 
