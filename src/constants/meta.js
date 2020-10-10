@@ -1,6 +1,6 @@
 module.exports = {
   siteTitle: "HMA", // Navigation and Site Title
-  siteTitleAlt: "This a little portfolio and blog for Hamza Miloud Amar", // Alternative Site title for SEO
+  siteTitleAlt: "portfolio and blog Hamza Miloud Amar", // Alternative Site title for SEO
   siteTitleShort: "hma", // short_name for manifest
   siteUrl: process.env.ROOT_URL || "https://hamzaamar.com", // Domain of your site. No trailing slash!
   lang: "en", // Language Tag on <html> element
