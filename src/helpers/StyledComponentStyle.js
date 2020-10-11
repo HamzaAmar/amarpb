@@ -6,8 +6,7 @@ export const globalStyle = () => css`
     --spacing-sm: 0.5rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
-    --header-height: 5rem;
-    --sidebar-width: 5rem;
+    --shared-value: 5rem;
   }
   @media (max-width: 410px) {
     :root {
@@ -22,6 +21,9 @@ export const globalStyle = () => css`
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+  }
+  html {
+    font-size: calc(12px + (20 - 12) * ((100vw - 400px) / (1800 - 400)));
   }
   body {
     box-sizing: border-box;
