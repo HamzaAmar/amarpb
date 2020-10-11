@@ -1,13 +1,23 @@
+const config = require("./src/constants/meta")
+
 module.exports = {
   siteMetadata: {
-    title: `amarpb`,
-    description: `this is my little portfolio and blog describe myself and do some 
-                  good articles about javascript react next and gatsby`,
-    url: "https://www.hamzaamar.io",
-    author: `Hamza Miloud Amar`,
-    social: {
-      twitter: "@dan_abramov",
+    title: config.siteTitleAlt,
+    description: config.siteDescription,
+    canonicalUrl: config.siteUrl,
+    author: {
+      name: config.author,
+      minibio: config.minibio,
     },
+    image: config.siteLogo,
+    social: {
+      twitter: config.userTwitter,
+    },
+    social: {
+      twitter: config.twitterHandle,
+      fbAppID: "",
+    },
+    keywords: ["Software Engineer", "React js", "Web Developer"],
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -35,12 +45,12 @@ module.exports = {
         path: `${__dirname}/data/blogs`,
       },
     },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/Layout`),
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/components/Layout`),
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
