@@ -58,7 +58,6 @@ const Layout = ({ children, navBarData }) => {
           <SideBar navBarData={navBarData} />
           <main>{children}</main>
         </div>
-
         <Footer />
       </div>
     </>

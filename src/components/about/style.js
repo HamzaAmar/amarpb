@@ -53,7 +53,7 @@ export const TextContent = styled.div`
 `
 
 export const Name = styled.h3`
-  font-size: 2.3rem;
+  font-size: 2rem;
   word-spacing: 5px;
   letter-spacing: 1px;
   color: transparent;
@@ -114,7 +114,7 @@ export const Text = styled.p`
   word-spacing: 2px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   width: 65%;
   line-height: 2;
   justify-self: center;

@@ -1,28 +1,34 @@
 import styled from "@emotion/styled"
 
 export const NavList = styled.nav`
+  min-width: var(--shared-value);
   height: 100vh;
-  position: fixed;
-  z-index: 1000000000000000000;
-  left: 0;
-  bottom: 0;
-  width: var(--sidebar-width);
+  position: sticky;
+  z-index: 1000;
+  right: 0;
+  top: 0;
   background: var(--color-background-main);
   transition: transform 0.3s;
-  grid-area: sidebar;
   :hover {
-    transform: scaleX(2.5);
+    transform: scaleX(2);
   }
 
-  @media (max-width: 468px) {
-    width: 100vw;
-    height: 4rem;
-  }
   ul {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
     align-items: center;
+  }
+  @media (max-width: 468px) {
+    position: fixed;
+    width: 100vw;
+    height: var(--shared-value);
+    top: calc(100% - var(--shared-value));
+    left: 0;
+
+    ul {
+      flex-direction: row;
+    }
   }
 `

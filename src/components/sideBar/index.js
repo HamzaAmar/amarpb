@@ -2,7 +2,7 @@ import React from "react"
 
 import { Link } from "gatsby"
 import { FaNetworkWired } from "react-icons/fa"
-import { NavList } from "./style"
+import { NavList, Container } from "./style"
 
 const NavItem = ({ children }) => {
   return (

@@ -20,7 +20,8 @@ const Container = styled.div`
 `
 
 const Section = styled.section`
-  /* padding: 3rem; */
+  padding: 2rem;
+  /* width: calc(100vw - var(--shared-value)); */
   background: linear-gradient(
     to right bottom,
     var(--color-background-light),
@@ -29,7 +30,6 @@ const Section = styled.section`
     var(--color-background-main)
   );
   box-shadow: var(--color-shadow);
-  width: 100vw;
   @media (max-width: 468px) {
     padding: 0 0.3rem;
     width: 100vw;
