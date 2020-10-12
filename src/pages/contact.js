@@ -18,6 +18,8 @@ import { DiCode } from "react-icons/di"
 const Container = styled.div`
   display: grid;
   grid-template-rows: repeat(2, auto);
+  grid-gap: 3rem;
+  padding: 2rem;
 `
 
 const Heading = styled.h1`
@@ -71,27 +73,31 @@ const Heading = styled.h1`
 
 const AboutContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  margin: 3rem 2rem;
-  grid-gap: 20px;
-  .social {
-    h1 {
-    }
-    grid-area: 1 / 1 / 2/ -1;
-    justify-self: start;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 2rem;
+  padding: 2rem;
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
     padding: 1rem;
   }
+  @media (max-width: 400px) {
+    grid-gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  grid-gap: 20px;
   div {
     justify-self: center;
     img {
       border-radius: 50%;
       width: 100%;
-      min-width: 300px;
+      min-width: 200px;
       max-width: 400px;
     }
   }
   div {
-    /* justify-self: start; */
     p {
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -145,7 +151,6 @@ const FormContainer = styled.div`
         font-size: 1.04rem;
         border-left: var(--color-primary-main) 2px solid;
         border-right: var(--color-primary-main) 2px solid;
-        /* border-top: var(--color-primary-main) 2px solid; */
         box-shadow: var(--color-shadow);
         border-radius: 5px;
       }
@@ -168,10 +173,10 @@ const contact = () => {
   return (
     <Layout navBarData={navBarData}>
       <Container>
+        <div className="social">
+          <Heading>social Contact</Heading>
+        </div>
         <AboutContainer>
-          <div className="social">
-            <Heading>social Contact</Heading>
-          </div>
           <div>
             <img src="https://picsum.photos/id/350/300/300" alt="hello" />
           </div>
