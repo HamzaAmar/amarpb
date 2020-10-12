@@ -11,9 +11,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
+  padding-bottom: 1rem;
   background: var(--color-background);
   filter: brightness(0.9);
-  min-width: 300px;
+  min-width: 250px;
   width: 100%;
   min-height: 200px;
   border-radius: 1rem;
@@ -35,16 +36,18 @@ export const Date = styled.p`
   font-style: italic;
 `
 export const Nav = styled.nav`
+  padding: 1rem 0;
   ul {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+    grid-gap: 1rem;
     width: 100%;
+
     li {
       font-size: 0.5rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 0.3rem 0.6rem;
-      margin: 1rem 0;
+      padding: 0.3rem;
       background: var(--color-primary-light);
       border-radius: 5px;
       cursor: pointer;
@@ -53,22 +56,31 @@ export const Nav = styled.nav`
       &:hover {
         box-shadow: none;
       }
-      &:not(: first-child) {
-        margin-left: 2rem;
-      }
     }
   }
 `
 
 export const Href = styled(Link)`
+  margin-left: auto;
   letter-spacing: 2px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  width: 30%;
-  display: inline-block;
   padding-bottom: 0.4rem;
   font-weight: 100;
   font-family: sans-serif;
+  vertical-align: middle;
+  text-align: end;
+
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary-light),
+    var(--color-primary-dark),
+    var(--color-primary-dark),
+    var(--color-primary-light)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   :hover {
     border-bottom: 2px solid var(--color-primary);
   }

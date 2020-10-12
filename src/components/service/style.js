@@ -5,7 +5,7 @@ export const Container = styled.section`
   grid-template-columns: 1fr 1fr;
   grid-gap: 1.5rem;
 
-  @media (max-width: 468px) {
+  @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }
 `
@@ -15,13 +15,12 @@ export const Service = styled.div`
   /* padding: 2rem 0.2rem; */
   background-color: var(--color-background);
   border-radius: 10px;
-  margin: 1rem 0.3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   box-shadow: var(--color-shadow);
-  min-width: 350px;
+  width: 100%;
 
   svg {
     margin-bottom: 1rem;
@@ -47,7 +46,7 @@ export const Service = styled.div`
   }
 
   @media (max-width: 468px) {
-    width: 100%;
+    width: calc(100% - 0.8rem);
     padding: 0.4rem 0.2rem;
     margin: 0.8rem 0.4rem;
 

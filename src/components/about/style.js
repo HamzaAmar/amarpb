@@ -31,10 +31,15 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   height: calc(100vh - 5rem);
+  width: 100%;
 
-  @media (max-width: 780px) {
+  @media (max-width: 800px) {
+    display: flex;
+    height: calc(100vh - 5rem);
+    width: 100%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+    align-content: center;
   }
 `
 
@@ -42,11 +47,9 @@ export const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   line-height: 1.7;
-  flex: 1 0 350px;
+  flex: 1 1 50%;
 
-  max-width: 600px;
-
-  @media (max-width: 780px) {
+  @media (max-width: 800px) {
     width: 100%;
     padding: 1rem;
   }
@@ -119,7 +122,7 @@ export const Text = styled.p`
   line-height: 2;
   justify-self: center;
 
-  @media (max-width: 468px) {
+  @media (max-width: 800px) {
     width: 100%;
     word-spacing: 0;
     letter-spacing: 1px;
@@ -128,12 +131,11 @@ export const Text = styled.p`
 `
 
 export const ImageWrapper = styled.div`
-  height: 400px;
-  /* flex-grow: 1; */
-  width: 400px;
+  height: 25rem;
+  width: 25rem;
   border-radius: 50%;
   position: relative;
-  background: red;
+  flex: 1 1 50%;
 
   ::before {
     content: "";
@@ -159,7 +161,9 @@ export const ImageWrapper = styled.div`
     border-radius: 30% 40% 30% 40% / 60% 30% 60% 30%;
   }
 
-  @media (max-width: 780px) {
-    display: none;
+  @media (max-width: 800px) {
+    order: -1;
+    height: 15rem;
+    width: 15rem;
   }
 `
