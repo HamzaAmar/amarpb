@@ -11,10 +11,17 @@ import { DiCode } from "react-icons/di"
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   margin: auto;
   grid-gap: 1.5rem;
-  padding: 2rem 0;
+  padding: 1rem 2rem;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 `
 
 const navBarData = [
