@@ -43,9 +43,13 @@ export const Nav = styled.nav`
     grid-gap: 1rem;
     width: 100%;
 
+
     li {
       font-size: 0.5rem;
       letter-spacing: 1px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       text-transform: uppercase;
       padding: 0.3rem;
       background: var(--color-primary-light);
