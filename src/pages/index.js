@@ -18,10 +18,8 @@ const Container = styled.div`
   grid-template-rows: repeat(4, auto);
   grid-gap: 2rem;
 `
-
 const Section = styled.section`
   padding: 2rem;
-  /* width: calc(100vw - var(--shared-value)); */
   background: linear-gradient(
     to right bottom,
     var(--color-background-light),
@@ -29,10 +27,12 @@ const Section = styled.section`
     var(--color-background-light),
     var(--color-background-main)
   );
+  /* width: calc(100vw - var(--shared-value)); */
+  width: calc(100%);
   box-shadow: var(--color-shadow);
   @media (max-width: 468px) {
     padding: 0 0.3rem;
-    width: 100vw;
+    width: 100%;
   }
 `
 

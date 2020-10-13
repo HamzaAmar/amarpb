@@ -2,15 +2,16 @@ import styled from "@emotion/styled"
 
 export const NavList = styled.nav`
   min-width: var(--shared-value);
+  width: var(--shared-value);
   height: 100vh;
   position: sticky;
   z-index: 1000;
   right: 0;
   top: 0;
   background: var(--color-background-main);
-  transition: transform 0.3s;
-  :hover {
-    transform: scaleX(2);
+  transition: width 0.3s;
+  & > :hover {
+    width: 10rem;
   }
 
   ul {

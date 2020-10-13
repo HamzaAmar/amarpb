@@ -41,7 +41,7 @@ export const Skill = styled.div`
     margin: 1rem;
   }
 
-  @media (max-width: 469px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     margin: 0.4rem 0;
     padding: 0.3rem 0.6rem;
@@ -77,6 +77,7 @@ export const SkillContainer = styled.div`
   background: var(--color-background-light);
   border-radius: 39px;
   height: 100%;
+  min-width: 8.5rem;
   svg {
     margin: 1rem 0;
     padding: 0.3rem;
@@ -90,5 +91,17 @@ export const SkillContainer = styled.div`
     font-weight: 700;
     letter-spacing: 1px;
     font-style: italic;
+  }
+  @media (max-width: 800px) {
+    padding: 1rem;
+
+    h2 {
+      font-weight: 200;
+      font-size: 1.1rem;
+    }
+    h4 {
+      font-weight: 600;
+      font-style: italic;
+    }
   }
 `
