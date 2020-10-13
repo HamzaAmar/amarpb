@@ -28,37 +28,36 @@ const animation = keyframes`
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items:center;
+  justify-content:space-evenly;
+  flex-direction: column;
   height: calc(100vh - 5rem);
-  width: 100%;
+  width: 70%;
+  padding-top: 1rem;
+  margin:auto;
+
 
   @media (max-width: 800px) {
-    display: flex;
-    height: calc(100vh - 5rem);
     width: 100%;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-content: center;
+    padding:1rem;
   }
+  
 `
 
 export const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   line-height: 1.7;
-  flex: 1 1 50%;
-
-  @media (max-width: 800px) {
-    width: 100%;
-    padding: 1rem;
-  }
+  flex: 1 1 100%;
+  width:100%;
+  display:flex;
+  align-items:center;
 `
 
 export const Name = styled.h3`
   font-size: 2rem;
-  word-spacing: 5px;
-  letter-spacing: 1px;
+  word-spacing: 8px;
+  letter-spacing: 2px;
   color: transparent;
   background: -webkit-linear-gradient(
     var(--color-primary-light),
@@ -66,7 +65,7 @@ export const Name = styled.h3`
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 800;
+  font-weight: 850;
 
   @media (max-width: 468px) {
     font-size: 1.4rem;
@@ -118,33 +117,26 @@ export const Text = styled.p`
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 0.8rem;
-  width: 65%;
+  width: 90%;
   line-height: 2;
   justify-self: center;
-
-  @media (max-width: 800px) {
-    width: 100%;
-    word-spacing: 0;
-    letter-spacing: 1px;
-    font-size: 0.8rem;
-  }
 `
 
 export const ImageWrapper = styled.div`
-  height: 25rem;
-  width: 25rem;
-  border-radius: 50%;
-  position: relative;
-  flex: 1 1 50%;
+  div {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    position: relative;
+  }
 
-  ::before {
+  & > div::before {
     content: "";
     position: absolute;
-    top: -20%;
-    left: -20%;
+    top: -1rem;
+    left: -1rem;
     width: 100%;
     background: var(--color-primary-light);
-    /* background: brown; */
     height: 100%;
     border-radius: 30% 40% 30% 40% / 60% 30% 60% 30%;
     box-shadow: 0 0 100px inset var(--color-primary-dark);
@@ -163,7 +155,10 @@ export const ImageWrapper = styled.div`
 
   @media (max-width: 800px) {
     order: -1;
-    height: 15rem;
-    width: 15rem;
+    flex: 1 1 100%;
+    margin-bottom:auto;
+    display:flex;
+    align-items:center;
+
   }
 `

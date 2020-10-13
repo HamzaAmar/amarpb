@@ -19,6 +19,12 @@ import {
 const About = () => {
   return (
     <Container>
+      <ImageWrapper>
+        <div>
+          <img src={"../../favicons/me-192X192.png"} alt="" />
+          <span />
+        </div>
+      </ImageWrapper>
       <TextContent>
         <Name>Hamza Miloud Amar </Name>
         <Text>
@@ -45,10 +51,6 @@ const About = () => {
           </li>
         </NavList>
       </TextContent>
-      <ImageWrapper>
-        <img src="/me.jpeg" />
-        <span />
-      </ImageWrapper>
     </Container>
   )
 }
