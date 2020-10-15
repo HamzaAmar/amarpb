@@ -7,7 +7,11 @@ export const Container = styled.header`
   align-items: center;
   height: var(--shared-value);
   padding: 0 3rem;
-  position: relative;
+  /* position: relative; */
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
   z-index: 10000000000;
   background: var(--color-background-main);
   box-shadow: var(--color-shadow);
@@ -154,19 +158,11 @@ export const Logo = styled.h1`
     font-size: 1.4rem;
   }
 `
-
-export const NavItem = styled.li`
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-
-  :hover::after {
+export const active = css`
     transform: scale(1);
     transition: transform 0.6s;
     transform-origin: right;
-  }
-  &::after {
+ ::after {
     content: "";
     position: absolute;
     top: 95%;
@@ -183,3 +179,36 @@ export const NavItem = styled.li`
     ${({ active }) => active && ` transform: scale(1)`}
   }
 `
+
+
+export const NavItem =css`
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  &.active::after{
+    transform: scale(1);
+  }
+    &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(
+      to right,
+      var(--color-primary-dark),
+      var(--color-primary-light)
+    );
+    width: 100%;
+    height: 3px;
+    transform: scale(0);
+    border-radius: 3px;
+  }
+  :hover::after {
+    transform: scale(1);
+    transform-origin: right;
+    transition: transform 0.6s;
+  } 
+
+`
+

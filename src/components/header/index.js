@@ -7,6 +7,7 @@ import {
   Container,
   MenuContainer,
   NavItem,
+  active,
   Nav,
   Logo,
   Menu,
@@ -17,7 +18,6 @@ const Header = ({ setSearch, ...rest }) => {
   // const url = typeof window !== "undefined" ? window.location.href : ""
 
   let websiteTheme
-  const [active, setActive] = useState("Home")
   const [visible, setVisible] = useState(false)
   const [theme, setTheme] = useState(websiteTheme)
 
@@ -45,11 +45,11 @@ const Header = ({ setSearch, ...rest }) => {
         <ul>
           {MenuData.map(({ id, name, path }) => {
             return (
-              <NavItem key={id} active={active === name}>
-                <Link onClick={() => setActive(name)} to={path}>
+              <li key={id}>
+                <Link to={path} css={NavItem} activeClassName='active'>
                   {name}
                 </Link>
-              </NavItem>
+              </li>
             )
           })}
         </ul>
