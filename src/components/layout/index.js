@@ -42,23 +42,26 @@ const Layout = ({ children, navBarData }) => {
         <meta charSet="utf-8" />
         <meta name="description" content={description} />
       </Helmet>
-      <div
-        css={css`
-          /* display: grid;
-          grid-template-areas: "header header", "sidebar main", "footer footer"; */
-        `}
-      >
+      <div>
         <Header setSearch={setSearchVisible} setMode={setMode} mode={mode} />
         <div
           css={css`
             display: flex;
             position: relative;
+            margin-top:5rem;
           `}
         >
           <SideBar navBarData={navBarData} />
-          <main>{children}</main>
+          <main  css={css`
+           margin-left:5rem;
+           @media (max-width:800px){
+             margin-left:0;
+           }
+          `}>
+            {children}
+            <Footer />
+          </main>
         </div>
-        <Footer />
       </div>
     </>
   )
