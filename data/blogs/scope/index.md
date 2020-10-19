@@ -4,7 +4,7 @@ date: "2020-08-21"
 description: "hello world"
 author: "Hamza Miloud Amar"
 category: " scoop in javascript is the best of javascript and react and you need to learn more about it"
-keywords: ["React" , "Next", "javascript", "Performance"]
+tags: ["React" , "Next", "javascript", "Performance"]
 ---
 
 # this in javascript

@@ -1,10 +1,10 @@
 ---
-title: "how to work with this in javascript and react"
+title: "scope in javascript"
 date: "2020-08-21"
-description: "you need to learn more about this in javascript because its this best part of javascript and react and you need to learn more about it"
+description: "hello world"
 author: "Hamza Miloud Amar"
-category: "React"
-tags: ["React", "Next", "javascript", "Performance"]
+category: " scoop in javascript is the best of javascript and react and you need to learn more about it"
+tags: ["css", "html"]
 ---
 
 # this in javascript
