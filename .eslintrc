@@ -1,0 +1,8 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "jsx-a11y"],
+  "rules": {
+    "no-console": "off",
+    "jsx-a11y/rule-name": "warn"
+  }
+}
