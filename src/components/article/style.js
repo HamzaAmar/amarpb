@@ -12,6 +12,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 2rem 1rem;
   padding-bottom: 1rem;
+  margin-bottom: 1rem;
   background: var(--color-background);
   filter: brightness(0.9);
   min-width: 250px;
@@ -43,13 +44,12 @@ export const Nav = styled.nav`
     grid-gap: 1rem;
     width: 100%;
 
-
     li {
       font-size: 0.5rem;
       letter-spacing: 1px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-transform: uppercase;
       padding: 0.3rem;
       background: var(--color-primary-light);

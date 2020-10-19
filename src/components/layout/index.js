@@ -5,14 +5,13 @@ import { Global, css } from "@emotion/core"
 
 import Header from "../header"
 import Footer from "../footer"
-import SideBar from "../sidebar"
 
 import { globalStyle } from "../../helpers/StyledComponentStyle"
 import useMode from "../../hooks/darkMode"
 import { Helmet } from "react-helmet"
 import config from "../../constants/meta"
 
-const Layout = ({ children, navBarData }) => {
+const Layout = ({ children }) => {
   const [mode, setMode] = useMode()
   const [searchVisible, setSearchVisible] = useState(false)
 
@@ -44,23 +43,15 @@ const Layout = ({ children, navBarData }) => {
       </Helmet>
       <div>
         <Header setSearch={setSearchVisible} setMode={setMode} mode={mode} />
-        <div
-          css={css`
-            display: flex;
-            position: relative;
-            margin-top:5rem;
-          `}
-        >
-          <SideBar navBarData={navBarData} />
-          <main  css={css`
-           margin-left:5rem;
-           @media (max-width:800px){
-             margin-left:0;
-           }
-          `}>
+        <div>
+          <main
+            css={css`
+              margin-top: 5rem;
+            `}
+          >
             {children}
-            <Footer />
           </main>
+          <Footer />
         </div>
       </div>
     </>

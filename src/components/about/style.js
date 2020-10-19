@@ -1,19 +1,5 @@
 import styled from "@emotion/styled"
-import { keyframes } from "@emotion/core"
 
-const animation = keyframes`
-  0{
-    transform:translate(-100%, -100%);
-  }
-  50%{
-    transform:translate(10%, 10%);
-
-  }
-  100%{
-    transform:translate(-10%, -10%);
-
-  }
-`
 // const opacity = keyframes`
 //   0%{
 //     opacity:1;
@@ -28,20 +14,18 @@ const animation = keyframes`
 
 export const Container = styled.div`
   display: flex;
-  align-items:center;
-  justify-content:space-evenly;
+  align-items: center;
+  justify-content: space-evenly;
   flex-direction: column;
   height: calc(100vh - 5rem);
   width: 70%;
   padding-top: 1rem;
-  margin:auto;
-
+  margin: auto;
 
   @media (max-width: 800px) {
     width: 100%;
-    padding:1rem;
+    padding: 1rem;
   }
-  
 `
 
 export const TextContent = styled.div`
@@ -49,9 +33,9 @@ export const TextContent = styled.div`
   flex-direction: column;
   line-height: 1.7;
   flex: 1 1 100%;
-  width:100%;
-  display:flex;
-  align-items:center;
+  width: 100%;
+  display: flex;
+  align-items: center;
 `
 
 export const Name = styled.h3`
@@ -74,44 +58,6 @@ export const Name = styled.h3`
   }
 `
 
-export const NavList = styled.ul`
-  display: flex;
-  li {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    margin: 1rem;
-    cursor: pointer;
-    position: relative;
-    box-shadow: var(--color-shadow);
-    z-index: 1;
-    overflow: hidden;
-
-    ::before {
-      content: "";
-      background: var(--color-primary-main);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 120%;
-      height: 120%;
-      border-radius: 30%;
-      /* transform: rotate(45deg) translateX(-40%) translateY(30%); */
-      transform: rotate(45deg) translate(-120%, 0);
-      z-index: -1;
-    }
-    &:hover::before {
-      animation: ${animation} 1s 1 forwards;
-    }
-    &:hover svg {
-      fill: var(--color-background);
-    }
-  }
-`
 export const Text = styled.p`
   word-spacing: 2px;
   letter-spacing: 1px;
@@ -156,9 +102,8 @@ export const ImageWrapper = styled.div`
   @media (max-width: 800px) {
     order: -1;
     flex: 1 1 100%;
-    margin-bottom:auto;
-    display:flex;
-    align-items:center;
-
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
   }
 `

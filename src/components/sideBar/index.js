@@ -2,12 +2,19 @@ import React from "react"
 
 import { Link } from "gatsby"
 import { FaNetworkWired } from "react-icons/fa"
-import { NavList, Container } from "./style"
+import { NavList, Container, ListItem } from "./style"
 
-const NavItem = ({ children }) => {
+const NavItem = ({ Icon , name }) => {
   return (
-    <li>
-      <Link to="hello">{children}</Link>
+    <li >
+      <Link to="hello">
+        <ListItem>
+          {Icon}
+          <h3>
+            {name}
+          </h3>
+        </ListItem>
+      </Link>
     </li>
   )
 }
@@ -15,11 +22,9 @@ const NavItem = ({ children }) => {
 const SideBar = ({ navBarData = [] }) => {
   return (
     <NavList>
-      <ul>
-        {navBarData.map(({ id, Icon }) => {
-          return <NavItem key={id}>{Icon}</NavItem>
+        {navBarData.map(({ id,...navItems }) => {
+          return <NavItem key={id} {...navItems} />
         })}
-      </ul>
     </NavList>
   )
 }

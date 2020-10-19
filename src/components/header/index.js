@@ -38,9 +38,11 @@ const Header = ({ setSearch, ...rest }) => {
 
   return (
     <Container>
-      <Link to="/" as={Logo}>
-        HMA
-      </Link>
+      <Logo>
+        <Link to="/">
+          HMA
+        </Link>
+      </Logo>
       <Nav visible={visible}>
         <ul>
           {MenuData.map(({ id, name, path }) => {

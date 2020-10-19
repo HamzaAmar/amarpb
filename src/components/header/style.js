@@ -146,12 +146,12 @@ export const logoContainer = css`
 
 export const Logo = styled.h1`
   letter-spacing: 4px;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--color-primary-main);
   text-transform: uppercase;
   transform: skew(10);
   text-shadow: var(--color-text);
-  font-weight: 900;
+  font-weight: 800;
 
   @media (max-width: 468px) {
     letter-spacing: 2px;

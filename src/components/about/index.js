@@ -1,20 +1,7 @@
 import React from "react"
-import {
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaGithub,
-  FaInstagram,
-} from "react-icons/fa"
 
-import {
-  Container,
-  Text,
-  NavList,
-  TextContent,
-  Name,
-  ImageWrapper,
-} from "./style"
+import { Container, Text, TextContent, Name, ImageWrapper } from "./style"
+import Social from "../social"
 
 const About = () => {
   return (
@@ -33,23 +20,7 @@ const About = () => {
           rending website with next js , single page application , CMS with
           Strapi and high performance website
         </Text>
-        <NavList>
-          <li>
-            <FaFacebook size={18} />
-          </li>
-          <li>
-            <FaTwitter size={18} />
-          </li>
-          <li>
-            <FaLinkedin size={18} />
-          </li>
-          <li>
-            <FaGithub size={18} />
-          </li>
-          <li>
-            <FaInstagram size={18} />
-          </li>
-        </NavList>
+        <Social />
       </TextContent>
     </Container>
   )
