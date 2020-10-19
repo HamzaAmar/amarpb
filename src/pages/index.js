@@ -1,7 +1,8 @@
 import React from "react"
 import { DiCode } from "react-icons/di"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
+import { FaGrinWink, FaNetworkWired } from "react-icons/fa"
+
 
 import SEO from "../components/seo"
 import Project from "../components/project"
@@ -10,7 +11,6 @@ import Services from "../components/service"
 import Skills from "../components/skill"
 import Layout from "../components/layout"
 
-import { FaGrinWink, FaNetworkWired } from "react-icons/fa"
 // import { Heading } from "../style/styles"
 
 const Container = styled.div`
@@ -85,18 +85,12 @@ const Heading = styled.h1`
   }
 `
 
-const navBarData = [
-  { id: "about", Icon: <FaNetworkWired size={30} /> },
-  { id: "services", Icon: <FaGrinWink size={30} /> },
-  { id: "projects", Icon: <DiCode size={30} /> },
-]
-
 const IndexPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
 
-      <Layout navBarData={navBarData}>
+      <Layout>
         <Container>
           <Section>
             <About />

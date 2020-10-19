@@ -1,19 +1,17 @@
 import React from "react"
 import styled from "@emotion/styled"
-
+import { css } from "@emotion/core"
 import {
   FaFacebook,
   FaTwitter,
   FaLinkedin,
   FaEnvelope,
   FaPhone,
-  FaNetworkWired,
-  FaGrinWink,
 } from "react-icons/fa"
 
-import SideBar from "../components/sideBar"
+import Text from "../components/field/Text"
+import TextArea from "../components/field/TextArea"
 import Layout from "../components/layout"
-import { DiCode } from "react-icons/di"
 
 const Container = styled.div`
   display: grid;
@@ -125,53 +123,17 @@ const AboutContainer = styled.div`
 `
 
 const FormContainer = styled.div`
+  width: 100%;
   form {
-    width: 90%;
-    div {
-      width: 100%;
-      margin: 2rem;
-      display: flex;
-      flex-direction: column;
-      label {
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-      }
-      input,
-      textarea {
-        border: none;
-        width: 100%;
-        padding: 0.4rem;
-        background-color: var(--color-background-light);
-        border-bottom: var(--color-background) 2px solid;
-
-        color: var(--color-text);
-        letter-spacing: 1px;
-        font-size: 1.04rem;
-        border-left: var(--color-primary-main) 2px solid;
-        border-right: var(--color-primary-main) 2px solid;
-        box-shadow: var(--color-shadow);
-        border-radius: 5px;
-      }
-      input:focus,
-      textarea:focus {
-        border-bottom: var(--color-primary-main) 2px solid;
-        outline: none;
-      }
-    }
+    margin: 2rem auto;
+    width: 95%;
+    /* background: var(--color-background-light); */
+    padding: 2rem 0;
   }
 `
-
-const navBarData = [
-  { id: "about", Icon: <FaNetworkWired size={30} /> },
-  { id: "services", Icon: <FaGrinWink size={30} /> },
-  { id: "projects", Icon: <DiCode size={30} /> },
-]
-
 const contact = () => {
   return (
-    <Layout navBarData={navBarData}>
+    <Layout>
       <Container>
         <div className="social">
           <Heading>social Contact</Heading>
@@ -213,24 +175,21 @@ const contact = () => {
         </AboutContainer>
         <FormContainer>
           <Heading>Contact Me</Heading>
-          <form>
-            <div>
-              <label htmlFor="name">Name</label>
-              <input type="text" name="" id="name" />
-            </div>
-            <div>
-              <label htmlFor="name">Email</label>
-              <input type="text" name="" id="name" />
-            </div>
-            <div>
-              <label htmlFor="name">Subject</label>
-              <input type="text" name="" id="name" />
-            </div>
-            <div>
-              <label htmlFor="name">Subject</label>
-              <textarea rows="8" type="text" name="" id="name"></textarea>
-            </div>
-          </form>
+          <div
+            css={css`
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 100%;
+            `}
+          >
+            <form>
+              <Text name="name" title="Name" type="text" />
+              <Text name="email" title="Email" type="text" />
+              <Text name="subject" title="Subject" type="text" />
+              <TextArea name="subject" title="Subject" />
+            </form>
+          </div>
         </FormContainer>
       </Container>
     </Layout>
