@@ -94,7 +94,7 @@ export const globalStyle = () => css`
     --color-primary-dark: #430769;
     --color-text: #060803;
     --hr: hsla(0, 50%, 0%, 0.2);
-    --color-shadow: 0 0 15px 1px var(--hr);
+    --color-shadow: 0 0 5px 1px var(--hr);
     --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
   }
 
