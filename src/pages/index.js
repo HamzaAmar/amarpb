@@ -3,7 +3,6 @@ import { DiCode } from "react-icons/di"
 import styled from "@emotion/styled"
 import { FaGrinWink, FaNetworkWired } from "react-icons/fa"
 
-
 import SEO from "../components/seo"
 import Project from "../components/project"
 import About from "../components/about"

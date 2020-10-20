@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa"
 
 import Text from "../components/field/Text"
+import Text from "../components/seo"
 import TextArea from "../components/field/TextArea"
 import Layout from "../components/layout"
 
@@ -134,6 +135,7 @@ const FormContainer = styled.div`
 const contact = () => {
   return (
     <Layout>
+      <Seo title="contact page" />
       <Container>
         <div className="social">
           <Heading>social Contact</Heading>
