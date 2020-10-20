@@ -14,7 +14,7 @@ export const Container = styled.footer`
 
 export const Subscription = styled.div`
   grid-area: subscription;
-  padding: 4rem 0.2rem;
+  padding: 2rem 0.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +36,7 @@ export const Subscription = styled.div`
 `
 export const Contact = styled.div`
   grid-area: contact;
+  padding: 2rem 0.2rem;
   background: var(--color-background-main);
   backdrop-filter: brightness(0.5);
   display: flex;

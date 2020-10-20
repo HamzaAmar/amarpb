@@ -22,6 +22,7 @@ const Header = ({ setSearch, ...rest }) => {
   const [theme, setTheme] = useState(websiteTheme)
 
   if (typeof window !== "undefined") {
+    console.log(window.__theme)
     websiteTheme = window.__theme
   }
 
@@ -33,22 +34,21 @@ const Header = ({ setSearch, ...rest }) => {
   }, [])
 
   const themeToggle = () => {
+    console.log("Hello form Toggle")
     window.__setPreferredTheme(websiteTheme === "dark" ? "light" : "dark")
   }
 
   return (
     <Container>
       <Logo>
-        <Link to="/">
-          HMA
-        </Link>
+        <Link to="/">HMA</Link>
       </Logo>
       <Nav visible={visible}>
         <ul>
           {MenuData.map(({ id, name, path }) => {
             return (
               <li key={id}>
-                <Link to={path} css={NavItem} activeClassName='active'>
+                <Link to={path} css={NavItem} activeClassName="active">
                   {name}
                 </Link>
               </li>
@@ -73,7 +73,7 @@ const Header = ({ setSearch, ...rest }) => {
           onClick={() => setSearch(true)}
         />
         <div
-          onClick={() => setVisible(v => !v)}
+          onClick={() => setVisible((v) => !v)}
           css={css`
             padding: 1rem;
             cursor: pointer;

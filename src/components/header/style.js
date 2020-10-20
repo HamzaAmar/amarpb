@@ -7,11 +7,10 @@ export const Container = styled.header`
   align-items: center;
   height: var(--shared-value);
   padding: 0 3rem;
-  /* position: relative; */
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10000000000;
   background: var(--color-background-main);
   box-shadow: var(--color-shadow);
@@ -102,6 +101,7 @@ export const Nav = styled.nav`
     display: flex;
     justify-content: space-evenly;
     font-size: 0.86rem;
+    font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 1px;
     width: 100%;
@@ -159,10 +159,10 @@ export const Logo = styled.h1`
   }
 `
 export const active = css`
-    transform: scale(1);
-    transition: transform 0.6s;
-    transform-origin: right;
- ::after {
+  transform: scale(1);
+  transition: transform 0.6s;
+  transform-origin: right;
+  ::after {
     content: "";
     position: absolute;
     top: 95%;
@@ -180,16 +180,15 @@ export const active = css`
   }
 `
 
-
-export const NavItem =css`
+export const NavItem = css`
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
-  &.active::after{
+  &.active::after {
     transform: scale(1);
   }
-    &::after {
+  &::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -208,7 +207,5 @@ export const NavItem =css`
     transform: scale(1);
     transform-origin: right;
     transition: transform 0.6s;
-  } 
-
+  }
 `
-

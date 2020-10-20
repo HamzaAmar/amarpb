@@ -15,16 +15,16 @@ import styled from "@emotion/styled"
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: space-evenly;
-  flex-direction: column;
   height: calc(100vh - 5rem);
-  width: 70%;
   padding-top: 1rem;
-  margin: auto;
 
   @media (max-width: 800px) {
+    flex-direction: column;
     width: 100%;
     padding: 1rem;
+    margin: auto;
   }
 `
 
@@ -32,8 +32,8 @@ export const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   line-height: 1.7;
-  flex: 1 1 100%;
-  width: 100%;
+  flex: 1 1 50%;
+  /* width: 100%; */
   display: flex;
   align-items: center;
 `
@@ -51,7 +51,7 @@ export const Name = styled.h3`
   -webkit-text-fill-color: transparent;
   font-weight: 850;
 
-  @media (max-width: 468px) {
+  @media (max-width: 600px) {
     font-size: 1.4rem;
     word-spacing: 1px;
     font-weight: 800;
@@ -69,9 +69,14 @@ export const Text = styled.p`
 `
 
 export const ImageWrapper = styled.div`
+  flex: 0 0 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   div {
-    height: 15rem;
-    width: 15rem;
+    height: 20rem;
+    width: 20rem;
     border-radius: 50%;
     position: relative;
   }
@@ -79,8 +84,8 @@ export const ImageWrapper = styled.div`
   & > div::before {
     content: "";
     position: absolute;
-    top: -1rem;
-    left: -1rem;
+    top: -3rem;
+    left: -3rem;
     width: 100%;
     background: var(--color-primary-light);
     height: 100%;
@@ -102,8 +107,13 @@ export const ImageWrapper = styled.div`
   @media (max-width: 800px) {
     order: -1;
     flex: 1 1 100%;
+    width: 100%;
     margin-bottom: auto;
     display: flex;
     align-items: center;
+    div {
+      height: 17rem;
+      width: 17rem;
+    }
   }
 `
