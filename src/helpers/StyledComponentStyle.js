@@ -89,9 +89,10 @@ export const globalStyle = () => css`
   body.light {
     --color-background-main: #fdfdfd;
     --color-background-light: #ffffff;
-    --color-primary-light: #7b0dbf;
-    --color-primary-main: #620b99;
-    --color-primary-dark: #430769;
+    /* --color-primary-light: #7b0dbf; */
+    --color-primary-light: #9154b7;
+    --color-primary-main: #653a80;
+    --color-primary-dark: #482a5b;
     --color-text: #060803;
     --hr: hsla(0, 50%, 0%, 0.2);
     --color-shadow: 0 0 5px 1px var(--hr);
@@ -114,7 +115,7 @@ export const globalStyle = () => css`
   a {
     text-decoration: none;
     color: var(--color-text);
-    font-variation-settings: "wdth" 600, "wght" 200, "opsz" 48;
+    font-variation-settings: "wght" 400;
   }
   ul {
     list-style: none;

@@ -3,34 +3,24 @@ import PropTypes from "prop-types"
 
 // Components
 import { Link, graphql } from "gatsby"
+import Articles from "../components/article/articles"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
-const Tags = ({ pageContext, data }) => {
+const Tags = ({ pageContext, data: { allMdx } }) => {
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
+  const { totalCount } = allMdx
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
 
   return (
-    <div>
+    <Layout>
+      <Seo title="tags" />
       <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-      {/*
-              This links to a page that does not yet exist.
-              You'll come back to it!
-            */}
+      <Articles data={allMdx} />
       <Link to="/tags">All tags</Link>
-    </div>
+    </Layout>
   )
 }
 
@@ -74,6 +64,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            description
           }
         }
       }

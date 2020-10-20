@@ -93,17 +93,17 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
-              const {fields, frontmatter } = edge.node;
-
-                return {...frontmatter, 
-                  description: excerpt,
-                  date: frontmatter.date,
-                  url: site.siteMetadata.canonicalUrl + "/blog" + fields.slug,
-                  guid: site.siteMetadata.canonicalUrl + "/blog" + fields.slug,
-                  custom_elements:[
+              return allMdx.edges.map((edge) => {
+                const { fields, frontmatter } = edge.node
+                const url =
+                  site.siteMetadata.canonicalUrl + "/blog" + fields.slug
+                return {
+                  ...frontmatter,
+                  url,
+                  guid: url,
+                  custom_elements: [
                     {
-                      'content:encoded': `<div style="width: 100%; margin: 0 auto; max-width: 800px; padding: 40px 40px;">
+                      "content:encoded": `<div style="width: 100%; margin: 0 auto; max-width: 800px; padding: 40px 40px;">
                           <p>
                             I've posted a new article <em>"${frontmatter.title}"</em> and you can <a href="${url}">read it online</a>.
                             <br>
@@ -114,35 +114,36 @@ module.exports = {
                         </div>`,
                     },
                   ],
-                };
-              });
+                }
+              })
             },
             query: `
-              {
+            {
 
-                allMdx(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: {fileAbsolutePath: {regex: "//data/blogs//"}}
-                  ) {
-                  edges {
-                    node {
-                      fields {
-                        slug
-                      }
-                      frontmatter {
-                        title
-                        description
-                        date
-                      }
-                    }
+              allMdx(
+               sort: { order: DESC, fields: [frontmatter___date] },
+               filter: {fileAbsolutePath: {regex: "//data/blogs//"}}
+               ) {
+                edges {
+                                node {
+                                  fields {
+                                    slug
+                                  }
+                                  frontmatter {
+                                    title
+                                    description
+                                    date
+                                  }
+                                }
                   }
                 }
+            }
             `,
             output: "/blogs/rss.xml",
             title: "Hamza Miloud Amar RSS Feed",
-          }
-        ]
-      }
-    }
+          },
+        ],
+      },
+    },
   ],
 }

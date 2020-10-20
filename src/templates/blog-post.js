@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby" // highlight-line
 import styled from "@emotion/styled"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import SEO from "../components/Seo"
+import SEO from "../components/seo"
 import Layout from "../components/layout"
 
 const Container = styled.div`
