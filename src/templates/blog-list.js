@@ -1,56 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import styled from "@emotion/styled"
-import { FaGrinWink, FaNetworkWired } from "react-icons/fa"
-import { DiCode } from "react-icons/di"
-
 import SEO from "../components/seo"
-import Article from "../components/article"
+import Articles from "../components/article/articles"
 import Layout from "../components/layout"
 
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin: auto;
-  grid-gap: 1.5rem;
-  padding: 1rem 2rem;
-
-  @media (max-width: 800px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  @media (max-width: 600px) {
-    padding: 1rem;
-  }
-`
-
-const navBarData = [
-  { id: "about", Icon: <FaNetworkWired size={30} /> },
-  { id: "services", Icon: <FaGrinWink size={30} /> },
-  { id: "projects", Icon: <DiCode size={30} /> },
-]
-
 const Blog = ({ data }) => {
-  console.log(data)
   return (
-    <Layout navBarData={navBarData}>
+    <Layout>
       <SEO title="blog Page" />
-
-      <Container>
-        {data &&
-          data.blogs &&
-          data.blogs.edges &&
-          data.blogs.edges.map(({ node }) => {
-            const { frontmatter, fields } = node
-
-            return (
-              <Article
-                key={frontmatter.title}
-                article={{ ...frontmatter, ...fields }}
-              />
-            )
-          })}
-      </Container>
+      <Articles data={data.blogs} />
     </Layout>
   )
 }

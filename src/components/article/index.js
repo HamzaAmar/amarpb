@@ -15,7 +15,11 @@ const Article = ({ article }) => {
         <ul>
           {article &&
             article.tags &&
-            article.tags.map((keyword) => <li key={keyword}>{keyword}</li>)}
+            article.tags.map((keyword) => (
+              <li key={keyword}>
+                <Link to={`/tags/${keyword.toLowerCase()}`}>{keyword}</Link>
+              </li>
+            ))}
         </ul>
       </Nav>
       <Href to="/about/">See More</Href>

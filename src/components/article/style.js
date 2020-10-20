@@ -7,6 +7,21 @@ export const Title = styled.h1`
   font-weight: 700;
 `
 
+export const Articles = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  grid-gap: 1.5rem;
+  padding: 1rem 2rem;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+`
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
