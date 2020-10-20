@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa"
 
 import Text from "../components/field/Text"
-import Text from "../components/seo"
+import Seo from "../components/seo"
 import TextArea from "../components/field/TextArea"
 import Layout from "../components/layout"
 
