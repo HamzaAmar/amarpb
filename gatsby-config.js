@@ -1,7 +1,13 @@
 const config = require("./src/constants/meta")
 
+const { NODE_ENV } = process.env
+
+const isNetlifyProduction = NODE_ENV === "production"
+const siteUrl = config.siteUrl
+
 module.exports = {
   siteMetadata: {
+    siteUrl,
     title: config.siteTitleAlt,
     description: config.siteDescription,
     canonicalUrl: config.siteUrl,
