@@ -20,6 +20,13 @@ module.exports = {
     keywords: ["Software Engineer", "React js", "Web Developer"],
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // trackingId: "G_123477468",
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-json`,
@@ -45,13 +52,7 @@ module.exports = {
         path: `${__dirname}/data/blogs`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "G_123477468",
-        // trackingId: process.env.GOOGLE_ANALYTICS_ID,
-      },
-    },
+
     // {
     //   resolve: `gatsby-plugin-layout`,
     //   options: {
