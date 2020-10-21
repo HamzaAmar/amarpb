@@ -3,7 +3,7 @@ module.exports = {
   siteTitleAlt: "portfolio and blog Hamza Miloud Amar", // Alternative Site title for SEO
   siteTitleShort: "hma", // short_name for manifest
   siteUrl:
-    process.env.ROOT_URL || "https://laughing-lichterman-b8386d.netlify.app/", // Domain of your site. No trailing slash!
+    process.env.ROOT_URL || "https://laughing-lichterman-b8386d.netlify.app", // Domain of your site. No trailing slash!
   lang: "en", // Language Tag on <html> element
   pathPrefix: "/",
   siteLogo: "images/logo.png", // Used for SEO and manifest, path to your image you placed in the 'static' folder
