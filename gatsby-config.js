@@ -45,6 +45,12 @@ module.exports = {
         path: `${__dirname}/data/blogs`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-layout`,
     //   options: {
@@ -75,6 +81,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-feed-mdx`,
       options: {
