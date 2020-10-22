@@ -1,9 +1,11 @@
 const config = require("./src/constants/meta")
 
-const { NODE_ENV } = process.env
+const { NODE_ENV, GOOGLE_ANALYTICS_ID } = process.env
 
 const isNetlifyProduction = NODE_ENV === "production"
 const siteUrl = config.siteUrl
+
+console.log(siteUrl, GOOGLE_ANALYTICS_ID)
 
 module.exports = {
   siteMetadata: {
@@ -30,7 +32,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // trackingId: "G_123477468",
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        trackingId: GOOGLE_ANALYTICS_ID,
       },
     },
     `gatsby-transformer-sharp`,
